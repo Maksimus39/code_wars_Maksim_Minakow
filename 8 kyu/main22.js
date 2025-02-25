@@ -20,3 +20,4 @@ var scoobydoo = new Dog("Great Dane");
 scoobydoo.bark = function() {
     return "Woof";
 }
+
