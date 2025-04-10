@@ -1,25 +1,40 @@
-// Если задана строка слов, разделенных пробелами, вернуть самое длинное слово.
-// Если есть несколько самых длинных слов, вернуть самое длинное правое слово.
+// Вам необходимо создать функцию calcType, которая получает 3 аргумента:
+// 2 числа и результат неизвестной операции, выполненной над ними (тоже число).
 //
-// Примеры
-// "red white blue" => "white"
-// "red blue gold" => "gold"
+// На основе этих 3 значений вам необходимо вернуть строку, описывающую,
+// какая операция была использована для получения данного результата.
+//
+// Возможные возвращаемые строки: «сложение», «вычитание», «умножение», «деление».
+//
+// Пример:
+// calcType(1, 2, 3) --> 1 ? 2 = 3 --> «сложение»
+// Примечания
+// В случае деления следует ожидать, что результат операции будет получен с помощью оператора /
+// для входных значений — не следует выполнять ручное преобразование типов данных или округление.
+//
+// Генерируются случаи только с одним возможным ответом.
+// В функцию будут переданы только допустимые аргументы.
+// В функцию будут переданы только допустимые аргументы!
 
+function calcType(a, b, res) {
+    // your code here
+    let operations
 
-function longestWord(stringOfWords) {
-    // Give me back the longest word!
-    const words = stringOfWords.split(' ');
-    let longest = '';
-
-    for (const word of words) {
-        if (word.length >= longest.length) {
-            longest = word;
-        }
+    switch (true) {
+        case a + b === res:
+            operations = "addition"
+            break
+        case a - b === res || b - a === res:
+            operations = "subtraction"
+            break
+        case a * b === res:
+            operations = "multiplication"
+            break
+        case a / b === res || b / a === res:
+            operations = "division"
+            break
     }
-
-    return longest;
+    return operations
 }
 
-console.log(longestWord("lonely"))
-console.log(longestWord("one two three"))
-console.log(longestWord("red blue grey"))
+console.log(calcType(2, 2, 4))
